@@ -4,7 +4,6 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 # Uncomment the line below in case you have `--require rails_helper` in the `.rspec` file
 # that will avoid rails generators crashing because migrations haven't been run yet
 # return unless Rails.env.test?
@@ -38,7 +37,6 @@ I18n.locale = "en"
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.include SignInSupport
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
   ]
